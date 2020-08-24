@@ -1,6 +1,7 @@
 //public variables
 String filename = "raindrop.jpg"; //face, face2, puddle, raindrop, window
-int speed = 2;
+int speed = 1;
+int strokeWeight = 20;
 
 //private variables
 String type = "Lines";
@@ -24,7 +25,7 @@ void setup() {
   y = imgHeight;
   
   //canvas
-  fullScreen();
+  fullScreen(2);
   widthRatio = (imgWidth*1.00)/width;
   println(widthRatio);
   
@@ -48,7 +49,9 @@ void draw() {
       int p = (int)(i*widthRatio);   
       if(p>width)continue;
       stroke(palette[p]);
-      line(i, 0, i, height);
+      strokeWeight(strokeWeight);
+      line(i, 0, i, height);    
+      i = i + strokeWeight-1;
     }
     
     //update color read line
